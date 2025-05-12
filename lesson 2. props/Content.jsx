@@ -35,4 +35,10 @@ export function Content({ welcomeMessage, settings, ButtonComponent }) {
         "no-unused-vars": ["error", { "varsIgnorePattern": "ButtonComponent" }]
     }
 }
+3. Либо установить плагин eslint-plugin-react
+npm install eslint-plugin-react eslint-plugin-react-hooks --save-dev
+4. Либо добавить строку в  rules: { eslint.config.js
+"react/jsx-uses-vars": "error",
+и потом сделать
+File > Invalidate Caches / Restart, для обновления кэша и перезагрузки конфигурации ESLint !!! мне в шторме помогло именно это
 */
