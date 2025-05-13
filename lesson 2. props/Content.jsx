@@ -26,18 +26,15 @@ export function Content({ welcomeMessage, settings, ButtonComponent }) {
 - Линтер настроен строго, и не понимает динамическое использование компонента
 
 Чтобы устранить предупреждение, можно:
-1. Добавить PropTypes для явного указания типа
-Нужно указать, что ButtonComponent — это компонент, используя PropTypes.elementType или PropTypes.func.
-Это поможет линтеру понять, что prop используется корректно.
-2. Либо отключить правило в конфигурации ESLint (в файле .eslintrc.json / eslint.config.js):
+1. Отключить правило в конфигурации ESLint (в файле .eslintrc.json / eslint.config.js):
 {
     "rules": {
         "no-unused-vars": ["error", { "varsIgnorePattern": "ButtonComponent" }]
     }
 }
-3. Либо установить плагин eslint-plugin-react
+2. Либо установить плагин eslint-plugin-react
 npm install eslint-plugin-react eslint-plugin-react-hooks --save-dev
-4. Либо добавить строку в  rules: { eslint.config.js
+3. Либо добавить строку в  rules: { eslint.config.js
 "react/jsx-uses-vars": "error",
 и потом сделать
 File > Invalidate Caches / Restart, для обновления кэша и перезагрузки конфигурации ESLint !!! мне в шторме помогло именно это
