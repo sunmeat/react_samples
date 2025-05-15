@@ -1,0 +1,22 @@
+.todo-item {
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.todo-remove-button {
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    background: blueviolet;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.todo-remove-button:hover {
+    transform: scale(1.05);
+}
