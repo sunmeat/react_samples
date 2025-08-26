@@ -6,7 +6,7 @@ export function MyButton() {
     }
     return (
         <button className="my-button" onClick={handleClick}>
-            Начать новую игру!
+            Почати нову гру!
         </button>
     );
 }
