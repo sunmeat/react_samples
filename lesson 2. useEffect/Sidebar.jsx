@@ -6,7 +6,7 @@ export function Sidebar({ menuItems }) {
 
     // логування змін елементів меню
     useEffect(() => {
-        console.log('Элементы меню обновлены:', localMenuItems);
+        console.log('Елементы меню оновлено:', localMenuItems);
     }, [localMenuItems]);
 
     // логування монтування компонента
@@ -65,3 +65,4 @@ export function Sidebar({ menuItems }) {
         </aside>
     );
 }
+
