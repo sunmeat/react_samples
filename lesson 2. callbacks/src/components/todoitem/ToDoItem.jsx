@@ -2,9 +2,9 @@ import './TodoItem.css';
 
 export function TodoItem({ todo, onRemove }) {
 
-    // обработчик удаления задачи
+    // обробник видалення задачі
     const handleRemove = () => {
-        onRemove(todo.id); // !!! коллбэк onRemove вызывается при изменении текста в поле ввода !!!
+        onRemove(todo.id); // !!! колбек onRemove викликається при зміні текста в полі вводу !!!
     };
 
     return (
@@ -16,7 +16,7 @@ export function TodoItem({ todo, onRemove }) {
                 className="todo-remove-button"
                 onClick={handleRemove}
             >
-                Удалить
+                Видалити
             </button>
         </li>
     );
