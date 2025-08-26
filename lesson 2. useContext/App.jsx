@@ -3,8 +3,8 @@ import './App.css';
 import { Header } from './components/header/Header.jsx';
 import { Sidebar } from './components/sidebar/Sidebar.jsx';
 import { Content } from './components/content/Content.jsx';
-import { AppContextProvider } from './contexts/AppContext.jsx'; // !!! подключаем контекст
-// пропсов больше нет
+import { AppContextProvider } from './contexts/AppContext.jsx'; // !!! підключаємо контекст
+// пропсів більше нема !!!
 
 export function App() {
     return (
