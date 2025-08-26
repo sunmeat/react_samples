@@ -6,29 +6,27 @@ export function Content({ welcomeMessage, settings, ButtonComponent }) {
         <main className="content">
             <h2 className="content-title">{welcomeMessage}</h2>
             <p>
-                Уровень сложности: {settings.difficulty} | Игроков из группы ПВ421: {settings.players}
+                Рівень складності: {settings.difficulty} | Гравців з групи СПР411: {settings.players}
             </p>
             <ButtonComponent />
         </main>
     );
 }
 
-/*
-Ошибка "unused component ..." обычно возникает в инструментах линтинга
-(например, ESLint) или IDE, когда компонент, переданный через props, не используется явно в коде,
-или линтер не распознает его как используемый. ButtonComponent используется как JSX-элемент (<ButtonComponent />),
-но линтер может не понимать, что это динамический компонент, переданный через props.
+/* помилка «unused component ...» зазвичай виникає в інструментах лінтування
+(наприклад, ESLint) або IDE, коли компонент, переданий через props, не використовується явно в коді,
+або лінтер не розпізнає його як використовуваний. ButtonComponent використовується як JSX-елемент (<ButtonComponent />),
+але лінтер може не розуміти, що це динамічний компонент, переданий через props.
 
-В компоненте Content передаётся ButtonComponent как prop и используется как <ButtonComponent />.
-Однако некоторые линтеры (например, ESLint с правилом no-unused-vars) могут не распознавать,
-что ButtonComponent — это компонент, и считать его неиспользуемой переменной, особенно если:
-- Отсутствует явное определение типов props (потому что код на JavaScript а не Typescript)
-- Линтер настроен строго, и не понимает динамическое использование компонента
+у компоненті Content передається ButtonComponent як prop і використовується як <ButtonComponent />.
+однак деякі лінтери (наприклад, ESLint з правилом no-unused-vars) можуть не розпізнавати,
+що ButtonComponent — це компонент, і вважати його невикористаною змінною, особливо якщо:
+- відсутнє явне визначення типів props (тому що код на JavaScript, а не Typescript)
+- лінтер налаштований строго і не розуміє динамічне використання компонента
 
-Чтобы устранить предупреждение, можно отключить правило в конфигурации ESLint (в файле .eslintrc.json / eslint.config.js):
+щоб усунути попередження, можна відключити правило в конфігурації ESLint (у файлі .eslintrc.json / eslint.config.js):
 {
     "rules": {
         "no-unused-vars": ["error", { "varsIgnorePattern": "ButtonComponent" }]
     }
-}
-*/
+} */
