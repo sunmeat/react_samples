@@ -3,43 +3,43 @@ import { useState, useEffect } from 'react';
 
 export function MyButton(props) {
     const [count, setCount] = useState(0);
-    const [buttonText, setButtonText] = useState(props.text); // Инициализируем текст из пропса
+    const [buttonText, setButtonText] = useState(props.text); // ініціалізація тексту з пропса
 
     const handleClick = () => {
         setCount(prev => prev + 1);
-        setButtonText(`Нажми меня! (Кликов: ${count + 1})`);
+        setButtonText(`Натисни мене! (Кліків: ${count + 1})`);
     };
 
-    // логирование изменения счётчика
+    // логування зміни значення лічильника
     useEffect(() => {
-        console.log('Счётчик кликов обновлен:', count);
+        console.log('Лічильник кліків оновлено:', count);
     }, [count]);
 
     /*
-    useEffect выполняет код (побочный эффект) после рендера компонента
-    () => { console.log('Счётчик кликов обновлен:', count); } — функция, которая выполняется
-    [count] — массив зависимостей. useEffect срабатывает, когда значение count изменяется
-    код внутри useEffect запускается после рендера, если изменился count
-    внизу есть примерная реализация useEffect
+    useEffect виконує код (побічний ефект) після рендерингу компонента
+    () => { console.log("Лічильник кліків оновлено:", count); } — функція, яка виконується
+    [count] — масив залежностей. useEffect спрацьовує, коли значення count змінюється
+    код всередині useEffect запускається після рендерингу, якщо змінився count
+    внизу є приблизна реалізація useEffect
      */
 
-    // логирование текста кнопки при монтировании
-    useEffect(() => { // useEffect понимает, что произошло монтирование или размонтирование компонента, благодаря внутренней архитектуре React
-        console.log('Кнопка смонтирована с текстом:', props.text);
-        return () => { // cleanup-функция
-            console.log('Кнопка размонтирована');
+    // логування тексту кнопки при монтуванні
+    useEffect(() => { // useEffect розуміє, що відбулося монтування або демонтування компонента, завдяки внутрішній архітектурі React
+        console.log('Кнопку змонтовано з текстом:', props.text);
+        return () => { // cleanup-функція
+            console.log('Кнопку розмонтовано');
         };
     }, [props.text]);
 
-    // наблюдение за изменением текста кнопки
+    // спостереження за зміною текста кнопки
     useEffect(() => {
         console.log('Текст кнопки изменён:', buttonText);
     }, [buttonText]);
 
-    // периодическое логирование счётчика каждые 3 секунды
+    // періодичне логування лічильника кожні 3 секунди
     useEffect(() => {
         const interval = setInterval(() => {
-            console.log('Текущий счётчик кликов:', count);
+            console.log('Кількість кліків:', count);
         }, 3000);
         return () => clearInterval(interval);
     }, [count]);
@@ -49,91 +49,92 @@ export function MyButton(props) {
             className="my-button"
             onClick={handleClick}
         >
-            {props.text} (Кликов: {count})
+            {props.text} (Кліків зроблено: {count})
         </button>
     );
 }
 
-// примерная реализация useEffect (если интересно :))
+// приблизна реалізація useEffect (якщо цікаво :))
 /*
-// внутреннее состояние React для хранения эффектов
-let hooks = []; // массив хуков для текущего компонента
-let currentHookIndex = 0; // индекс текущего хука
-let isFirstRender = true; // флаг первого рендера
+// внутрішній стан React для зберігання ефектів
+let hooks = []; // масив хуків для поточного компонента
+let currentHookIndex = 0; // індекс поточного хука
+let isFirstRender = true; // прапор першого рендерингу
 
-// структура эффекта
+// структура ефекту
 function createEffect(callback, dependencies) {
     return {
-        callback, // функция эффекта
-        dependencies, // массив зависимостей
-        cleanup: null // функция очистки (если возвращена)
+        callback,     // функція ефекту
+        dependencies, // масив залежностей
+        cleanup: null // функція очищення (якщо повернута)
     };
 }
 
-// реализация useEffect
+// реалізація useEffect
 function useEffect(callback, dependencies) {
-    // получаем или создаём эффект для текущего хука
+    // отримуємо або створюємо ефект для поточного хука
     const hookIndex = currentHookIndex++;
     const prevEffect = hooks[hookIndex] || null;
 
-    // проверяем, изменились ли зависимости
+    // перевіряємо, чи змінилися залежності
     const hasChanged = !prevEffect || dependencies.some(
         (dep, i) => !Object.is(dep, prevEffect.dependencies[i])
     );
 
-    // если это первый рендер или зависимости изменились
+    // якщо це перший рендер або залежності змінилися
     if (isFirstRender || hasChanged) {
-        // создаём новый эффект
+        // створюємо новий ефект
         const effect = createEffect(callback, dependencies);
         hooks[hookIndex] = effect;
 
-        // асинхронно выполняем эффект после рендера
+        // асинхронно виконуємо ефект після рендерингу
         queueMicrotask(() => {
-            // выполняем эффект
+            // виконуємо ефект
             const cleanup = callback();
-            // сохраняем функцию очистки, если она есть
-            if (typeof cleanup === 'function') {
+            // зберігаємо функцію очищення, якщо вона є
+            if (typeof cleanup === "function") {
                 effect.cleanup = cleanup;
             }
         });
     }
 }
 
-// рендер компонента
+// рендер компоненту
 function renderComponent(component) {
-    hooks = []; // сбрасываем хуки (или берём из Fiber)
+    hooks = []; // скидаємо хуки (або беремо з Fiber)
     currentHookIndex = 0;
     isFirstRender = !component.hasRendered;
 
-    // выполняем компонент
+    // виконуємо компонент
     component();
 
-    // помечаем, что рендер завершён
+    // позначаємо, що рендер завершено
     component.hasRendered = true;
 }
 
-// при размонтировании компонента
+// при демонтуванні компонента
 function unmountComponent() {
     hooks.forEach(effect => {
-        // вызываем функцию очистки, если она есть
+        // викликаємо функцію очищення, якщо вона є
         if (effect.cleanup) {
             effect.cleanup();
         }
     });
-    hooks = []; // очищаем хуки
+    hooks = []; // очищаємо хуки
 }
 
-// пример использования в компоненте
+// приклад використання в компоненті
 function MyComponent() {
-    const [count, setCount] = useState(0); // другой хук
+    const [count, setCount] = useState(0); // інший хук
 
     useEffect(() => {
-        // эффект
-        console.log('Счётчик кликов обновлен:', count);
-        // возвращаем функцию очистки (опционально)
-        return () => console.log('Очистка для count:', count);
+        // ефект
+        console.log("Лічильник кліків оновлено: ", count);
+        // повертаємо функцію очищення (опціонально)
+        return () => console.log("Очищення для count: ", count);
     }, [count]);
 
-    // ... остальная логика компонента
+    // ... решта логіки компонента
 }
+
  */
