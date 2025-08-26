@@ -5,7 +5,9 @@ export function Sidebar({ menuItems, onMenuSelect }) {
         <aside className="sidebar">
             <nav>
                 <ul className="sidebar-menu">
-                    {menuItems.map((item, index) => ( // .map() здесь перебирает массив menuItems и для каждого элемента создаёт HTML-элемент <li> с ссылкой, то есть он превращает каждый пункт меню в отдельный элемент списка
+                    {menuItems.map((item, index) => ( // .map() тут перебирає масив menuItems
+            // і для кожного елемента створює HTML-елемент <li> з посиланням, тобто він перетворює кожен пункт меню
+            // в окремий елемент списку
                         <li key={index}>
                             <a href="#"
                                 className="sidebar-link"
