@@ -8,7 +8,7 @@ export function MyButton() {
 
     const handleClick = () => {
         setCount((prev) => prev + 1);
-        toggleTheme(); // переключение темы при клике
+        toggleTheme(); // перемикання теми
     };
 
     return (
@@ -20,7 +20,7 @@ export function MyButton() {
                 color: theme.color,
             }}
         >
-            Нажми меня (Кликов: {count})
+            Натисни мене (Кліків: {count})
         </button>
     );
 }
