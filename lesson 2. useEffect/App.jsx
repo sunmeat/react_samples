@@ -14,12 +14,12 @@ export function App() {
     };
 
     const sidebarProps = {
-        menuItems: ["Новая игра", "Загрузить игру", "Таблица рекордов", "Об авторах", "Выйти"],
+        menuItems: ["Нова гра", "Завантажити гру", "Таблиця рекордів", "Автори", "Вихід"],
     };
 
     const contentProps = {
-        welcomeMessage: "Добро пожаловать в игру!",
-        settings: { difficulty: "Ферзь", players: 21 }
+        welcomeMessage: "Ласкаво просимо!",
+        settings: { difficulty: "Королівський", players: 11 }
     };
 
     return (
