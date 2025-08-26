@@ -4,12 +4,12 @@ import { MyButton } from '../mybutton/MyButton.jsx';
 import { TodoItem } from '../todoitem/TodoItem.jsx';
 
 export function Content() {
-    // состояние для списка задач
+    // стан для списку задач
     const [todos, setTodos] = useState([]);
-    // состояние для текста новой задачи
+    // стан для тексту нової задачі
     const [inputValue, setInputValue] = useState('');
 
-    // функция для добавления задачи
+    // функція для додавання задачі
     const addTodo = () => {
         if (inputValue.trim()) {
             setTodos((prev) => [
@@ -20,30 +20,30 @@ export function Content() {
         }
     };
 
-    // функция для удаления задачи
+    // функція для видалення задачі
     const removeTodo = (id) => {
         setTodos((prev) => prev.filter((todo) => todo.id !== id));
     };
 
-    // функция для обновления текста ввода
+    // функція для оновлення тексту вводу
     const updateInput = (value) => {
         setInputValue(value);
     };
 
-    // !!! родительский компонент Content определяет функции (addTodo, removeTodo, updateInput)
-    // и передает их дочерним компонентам (MyButton, TodoItem) через props !!!
+    // !!! батьківський компонент Content визначає функції (addTodo, removeTodo, updateInput)
+    // і передає їх дочірнім компонентам (MyButton, TodoItem) через props !!!
 
-    // дочерние компоненты вызывают эти функции при определённых событиях
-    // (например, клик по кнопке или ввод текста), передавая данные назад родителю, если нужно
+    // дочірні компоненти викликають ці функції при певних подіях
+    // (наприклад, клік по кнопці або введення тексту), передаючи дані назад батькові, якщо потрібно
 
-    // эти вызовы обновляют состояние родителя (todos, inputValue), что приводит к ререндеру
+    // ці виклики оновлюють стан батька (todos, inputValue), що призводить до ререндерингу
 
     return (
         <main className="content">
             <h2 className="content-title">
                 Список задач
             </h2>
-            <p>Всего задач: {todos.length}</p>
+            <p>Всього задач: {todos.length}</p>
             <MyButton
                 inputValue={inputValue}
                 onInputChange={updateInput}
