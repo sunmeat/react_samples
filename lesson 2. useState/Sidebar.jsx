@@ -27,7 +27,7 @@ export function Sidebar({ menuItems, onMenuSelect }) {
                 </ul>
             </nav>
             {selectedItem && (
-                <p className="sidebar-selected">Выбрано: {selectedItem}</p>
+                <p className="sidebar-selected">Вибрано: {selectedItem}</p>
             )}
         </aside>
     );
