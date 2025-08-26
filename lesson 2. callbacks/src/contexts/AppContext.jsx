@@ -1,11 +1,8 @@
 import { createContext, useState } from 'react';
 
-// создание контекста
 export const AppContext = createContext();
-// чтобы убрать предупреждение ESLint, необходимо вынести провайдер контекста в отдельный файл
-// AppContextProvider.jsx (но это некритично)
 
-// провайдер контекста
+// провайдер контексту
 export function AppContextProvider({ children }) {
     const [theme, setTheme] = useState({
         background: '#4a90e2',
@@ -13,11 +10,11 @@ export function AppContextProvider({ children }) {
         align: 'center',
     });
     const [user] = useState({
-        name: 'Гость',
+        name: 'Гість',
         userCount: 1530,
     });
 
-    // функция для переключения темы
+    // функція для перемикання теми
     const toggleTheme = () => {
         setTheme((prev) => ({
             background: prev.background === '#4a90e2' ? '#2c3e50' : '#4a90e2',
