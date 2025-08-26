@@ -9,7 +9,7 @@ export function Content() {
     return (
         <main className="content">
             <h2 className="content-title" style={{ color: theme.color }}>
-                Добро пожаловать в игру, {user.name}!
+                Ласкаво просимо, {user.name}!
             </h2>
             <MyButton />
             <br />
