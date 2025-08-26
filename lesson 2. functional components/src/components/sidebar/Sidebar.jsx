@@ -5,11 +5,11 @@ export function Sidebar() {
         <aside className="sidebar">
             <nav>
                 <ul className="sidebar-menu">
-                    <li><a href="#" className="sidebar-link">Новая игра</a></li>
-                    <li><a href="#" className="sidebar-link">Загрузить игру</a></li>
-                    <li><a href="#" className="sidebar-link">Об авторе</a></li>
-                    <li><a href="#" className="sidebar-link">Настройки</a></li>
-                    <li><a href="#" className="sidebar-link">Выход</a></li>
+                    <li><a href="#" className="sidebar-link">Нова гра</a></li>
+                    <li><a href="#" className="sidebar-link">Завантажити гру</a></li>
+                    <li><a href="#" className="sidebar-link">Про автора</a></li>
+                    <li><a href="#" className="sidebar-link">Налаштування</a></li>
+                    <li><a href="#" className="sidebar-link">Вийти</a></li>
                 </ul>
             </nav>
         </aside>
