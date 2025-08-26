@@ -15,7 +15,7 @@ export function Header() {
         >
             <h1 className="header-title">Heroes of JavaScript and React III: useContext</h1>
             <p style={{ textAlign: theme.align }}>
-                Активных игроков по всему миру прямо сейчас: {user.userCount}
+                Користувачів по всьому світі прям зараз: {user.userCount}
             </p>
         </header>
     );
