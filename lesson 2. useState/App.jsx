@@ -15,14 +15,14 @@ export function App() {
     };
 
     const sidebarProps = {
-        menuItems: ["Новая игра", "Загрузить игру", "Таблица рекордов", "Об авторах", "Выйти"],
-        onMenuSelect: (item) => alert(`Выбран пункт: ${item}`)
+        menuItems: ["Нова гра", "Завантажити гру", "Таблиця рекордів", "Про автора", "Вийти"],
+        onMenuSelect: (item) => alert(`Обрано пункт: ${item}`)
     };
 
     const contentProps = {
-        welcomeMessage: "Добро пожаловать в игру!",
-        settings: { difficulty: "Ферзь", players: 21 },
-        ButtonComponent: () => <MyButton text="Нажми меня" />
+        welcomeMessage: "Ласкаво просимо!",
+        settings: { difficulty: "Королівський", players: 11 },
+        ButtonComponent: () => <MyButton text="Натисни мене" />
     };
 
     return (
