@@ -19,13 +19,13 @@ export function Header({ title, userCount, theme }) {
         >
             <h1 className="header-title">{title}</h1>
             <p style={{ textAlign: theme.align }}>
-                Активных пользователей по всему миру прямо сейчас: {userCount}
+                Користувачів по всьому світі прям зараз: {userCount}
             </p>
             <button
                 className="header-button"
                 onClick={toggleHighlight}
             >
-                {isHighlighted ? 'Убрать выделение' : 'Выделить заголовок'}
+                {isHighlighted ? 'Прибрати виділення' : 'Виділити заголовок'}
             </button>
         </header>
     );
