@@ -13,7 +13,7 @@ export function AppContextProvider({ children }) {
         align: 'center',
     });
     const [user] = useState({
-        name: 'Гость',
+        name: 'Гість',
         userCount: 1530,
     });
 
