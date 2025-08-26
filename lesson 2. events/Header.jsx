@@ -7,7 +7,7 @@ export function Header({title, userCount, theme}) {
 
     const handleContextMenu = (event) => {
         event.preventDefault();
-        alert('Контекстное меню в заголовке');
+        alert('Контекстне меню в заголовку');
     };
 
     return (
@@ -18,7 +18,7 @@ export function Header({title, userCount, theme}) {
             onContextMenu={handleContextMenu}
         >
             <h1 className="header-title">{title}</h1>
-            <p style={{textAlign: theme.align}}>Активных пользователей по всему миру прямо сейчас: {userCount}</p>
+            <p style={{textAlign: theme.align}}>Користувачів по всому світі зараз: {userCount}</p>
         </header>
     );
 }
