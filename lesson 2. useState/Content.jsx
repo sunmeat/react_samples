@@ -18,20 +18,20 @@ export function Content({ welcomeMessage, settings, ButtonComponent }) {
         <main className="content">
             <h2 className="content-title">{welcomeMessage}</h2>
             <p>
-                Уровень сложности: {settings.difficulty} | Игроков из группы ПВ421: {settings.players}
+                Рівень складності: {settings.difficulty} | Гравців: {settings.players}
             </p>
             <button
                 className="content-text"
                 style={{ margin: '10px 0', padding: '5px 10px' }}
                 onClick={toggleSettings}
             >
-                {showSettings ? 'Скрыть настройки' : 'Показать настройки'}
+                {showSettings ? 'Приховати налаштування' : 'Показати налаштування'}
             </button><br></br>
             {showSettings && (
                 <div style={{ margin: '10px 0' }}>
-                    <p>Детали настроек:</p>
-                    <p>Сложность: {settings.difficulty}</p>
-                    <p>Игроков: {settings.players}</p>
+                    <p>Деталі налаштувань:</p>
+                    <p>Складність: {settings.difficulty}</p>
+                    <p>Гравців: {settings.players}</p>
                 </div>
             )}
             <ButtonComponent /><br></br><br></br>
@@ -39,12 +39,12 @@ export function Content({ welcomeMessage, settings, ButtonComponent }) {
                 <input
                     type="text"
                     className="content-input"
-                    placeholder="Введите текст..."
+                    placeholder="Введіть текст..."
                     value={inputText}
                     onChange={handleInputChange}
                 />
                 {inputText && (
-                    <p style={{ marginTop: '5px' }}>Состояние текстового поля: {inputText}</p>
+                    <p style={{ marginTop: '5px' }}>Стан текстового поля: {inputText}</p>
                 )}
             </div>
         </main>
