@@ -4,7 +4,7 @@ import { AppContext } from '../../contexts/AppContext.jsx';
 
 export function Sidebar() {
     const { theme, user } = useContext(AppContext);
-    const menuItems = ['Новая игра', 'Загрузить игру', 'Таблица рекордов', 'Об авторах', 'Выйти'];
+    const menuItems = ['Нова гра', 'Завантажити гру', 'Таблиця рекордів', 'Про автора', 'Вийти'];
 
     return (
         <aside className="sidebar" style={{ backgroundColor: theme.background }}>
@@ -18,7 +18,7 @@ export function Sidebar() {
                         </li>
                     ))}
                 </ul>
-                <p>Игрок: {user.name}</p>
+                <p>Гравець: {user.name}</p>
             </nav>
         </aside>
     );
