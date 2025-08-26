@@ -7,5 +7,4 @@ export function Header({ title, userCount, theme }) {
             <p style={{ textAlign: theme.align }}>Активних користувачів по усьому світі прям зараз: {userCount}</p>
         </header>
     );
-
 }
