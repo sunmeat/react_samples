@@ -2,15 +2,15 @@ import './MyButton.css';
 
 export function MyButton(props) {
     const handleDoubleClick = () => {
-        alert('Двойной клик по кнопке!');
+        alert('Подвійний клік по кнопці!');
     };
 
     const handleMouseEnter = () => {
-        console.log('Курсор над кнопкой');
+        console.log('Курсор над кнопкою');
     };
 
     const handleMouseLeave = () => {
-        console.log('Курсор ушел с кнопки');
+        console.log('Курсор за межами кнопки');
     };
 
     return (
@@ -21,7 +21,7 @@ export function MyButton(props) {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
-            {props.label} (Кликнули {props.clickCount} раз)
+            {props.label} (Клацнули {props.clickCount} разів)
         </button>
     );
 }
