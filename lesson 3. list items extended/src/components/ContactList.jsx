@@ -6,9 +6,9 @@ function ContactList({ people, isLoading, onDelete, onEdit, onAddContact }) {
     return (
         <div className="contact-list">
             {isLoading ? (
-                <p className="loading-text">Загрузка данных...</p>
+                <p className="loading-text">Завантаження даних...</p>
             ) : people.length === 0 ? (
-                <p className="loading-text">Нет данных</p>
+                <p className="loading-text">Нема нічого</p>
             ) : (
                 <div className="cards-container">
                     {people.map(contact => (
@@ -22,10 +22,11 @@ function ContactList({ people, isLoading, onDelete, onEdit, onAddContact }) {
                 </div>
             )}
             <button className="add-button" onClick={onAddContact}>
-                Добавить контакт
+                Додати контакт
             </button>
         </div>
     );
 }
+
 
 export default ContactList;
