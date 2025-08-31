@@ -17,14 +17,15 @@ function ContactCard({ contact, onEdit, onDelete }) {
             </div>
             <div className="contact-buttons">
                 <button className="edit-button" onClick={() => onEdit(contact)}>
-                    Редактировать
+                    Редагувати
                 </button>
                 <button className="delete-button" onClick={() => onDelete(contact.id)}>
-                    Удалить
+                    Видалити
                 </button>
             </div>
         </div>
     );
 }
+
 
 export default ContactCard;
