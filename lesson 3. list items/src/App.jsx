@@ -8,15 +8,15 @@ function App() {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        let isCancelled = false; // флаг для предотвращения двойного вызова
+        let isCancelled = false; // прапорець для запобігання подвійного виклику
 
         setIsLoading(true);
         fetch('https://randomuser.me/api/?results=10')
             .then(response => response.json())
             .then(data => {
-                if (isCancelled) return; // пропускаем, если компонент размонтирован
+                if (isCancelled) return; // пропускаємо, якщо компонента розмонтована
 
-                console.log('Данные от API:', data); // для отладки
+                console.log('Дані від API:', data); // для налагодження
 
                 if (data.results && data.results.length > 0) {
                     const fetchedPeople = data.results.map((user, index) => {
@@ -35,18 +35,18 @@ function App() {
             })
             .catch(error => {
                 if (isCancelled) return;
-                console.error('Ошибка загрузки данных:', error);
+                console.error('Помилка:', error);
                 setIsLoading(false);
             });
 
         return () => {
-            isCancelled = true; // отмена при размонтировании
+            isCancelled = true; // скасування при розмонтуванні
         };
     }, []);
 
     return (
         <div className="app-container">
-            <h1 className="app-title">Контакты</h1>
+            <h1 className="app-title">Контакти</h1>
             <ContactList people={people} isLoading={isLoading} />
         </div>
     );
