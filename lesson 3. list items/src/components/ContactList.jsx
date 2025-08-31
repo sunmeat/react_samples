@@ -5,11 +5,11 @@ import './../App.css';
 function ContactList({ people, isLoading }) {
     return (
         <div className="contact-list">
-            <h2 className="list-title">Список контактов</h2>
+            <h2 className="list-title">Список контактів</h2>
             {isLoading ? (
-                <p className="loading-text">Загрузка данных...</p>
+                <p className="loading-text">Завантаження даних...</p>
             ) : people.length === 0 ? (
-                <p className="loading-text">Нет данных</p>
+                <p className="loading-text">Нема даних</p>
             ) : (
                 <div className="cards-container">
                     {people.map(person => (
@@ -20,5 +20,6 @@ function ContactList({ people, isLoading }) {
         </div>
     );
 }
+
 
 export default ContactList;
