@@ -10,7 +10,7 @@ function App() {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
-        let isCancelled = false; // флаг для предотвращения двойного вызова
+        let isCancelled = false; 
 
         setIsLoading(true);
         fetch('https://randomuser.me/api/?results=10')
@@ -18,7 +18,7 @@ function App() {
             .then(data => {
                 if (isCancelled) return;
 
-                console.log('Данные от API:', data);
+                console.log('Дані від API:', data);
 
                 if (data.results && data.results.length > 0) {
                     const fetchedPeople = data.results.map((user, index) => {
@@ -37,12 +37,12 @@ function App() {
             })
             .catch(error => {
                 if (isCancelled) return;
-                console.error('Ошибка загрузки данных:', error);
+                console.error('Помилка:', error);
                 setIsLoading(false);
             });
 
         return () => {
-            isCancelled = true; // отмена при размонтировании
+            isCancelled = true; 
         };
     }, []);
 
@@ -82,13 +82,13 @@ function App() {
                 }
             })
             .catch(error => {
-                console.error('Ошибка добавления контакта:', error);
+                console.error('Помилка додавання контакту:', error);
             });
     };
 
     return (
         <div className="app-container">
-            <h1 className="app-title">Контакты</h1>
+            <h1 className="app-title">Контакти</h1>
             <ContactList
                 people={people}
                 isLoading={isLoading}
@@ -99,7 +99,7 @@ function App() {
             {isModalOpen && (
                 <div className="modal">
                     <div className="modal-content">
-                        <h2 className="modal-title">Редактировать контакт</h2>
+                        <h2 className="modal-title">Редагувати контакт</h2>
                         <form onSubmit={handleSave}>
                             <div className="modal-field">
                                 <label>Имя</label>
@@ -111,7 +111,7 @@ function App() {
                                 />
                             </div>
                             <div className="modal-field">
-                                <label>Фамилия</label>
+                                <label>ПІБ</label>
                                 <input
                                     type="text"
                                     value={editingContact.lastName}
@@ -138,13 +138,13 @@ function App() {
                                 />
                             </div>
                             <div className="modal-buttons">
-                                <button type="submit" className="modal-save-button">Сохранить</button>
+                                <button type="submit" className="modal-save-button">Зберегти</button>
                                 <button
                                     type="button"
                                     className="modal-cancel-button"
                                     onClick={() => setIsModalOpen(false)}
                                 >
-                                    Отмена
+                                    Скасувати
                                 </button>
                             </div>
                         </form>
